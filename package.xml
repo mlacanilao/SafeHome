@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Meta>
+  <title>Safe Home</title>
+  <id>omegaplatinum.elin.safehome</id>
+  <author>OmegaPlatinum</author>
+  <loadPriority>100</loadPriority>
+  <description>
+    Replaces hostile and wild spawns around the player's home with neutral visitors.
+    敵対的なモンスターや野生動物の出現を無効化し、ホームゾーンに中立の訪問者をスポーンさせます。
+
+    [h1] Features [/h1]
+    [list]
+    [*]Replaces hostile enemies and wild animal spawns in home zones with neutral visitors (guests).
+    [*]Prevents hostile mobs from spawning in home zones.
+    [*]Ignores the current danger level when determining spawns.
+    [*]Compatible with existing save files.
+    [/list]
+
+    [h1] Compatibility [/h1]
+    This mod works with existing save files and does not require any manual setup.
+
+    Supports Game Version: 0.23.55
+
+    [h1] 特徴 [/h1]
+    [list]
+    [*]敵対的な敵や野生動物を中立の訪問者（ゲスト）に置き換えます。
+    [*]ホームゾーンで敵対的なモブがスポーンするのを防ぎます。
+    [*]スポーンを決定する際に現在の危険度を無視します。
+    [*]既存のセーブデータと互換性があります。
+    [/list]
+
+    [h1] 互換性 [/h1]
+    このMODは既存のセーブデータと互換性があり、特別な設定は不要です。
+
+    対応ゲームバージョン: 0.23.55
+  </description>
+  <tags>QoL</tags>
+  <visibility>Public</visibility>
+  <version>0.23.55</version>
+</Meta>
