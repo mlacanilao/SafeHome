@@ -1,3 +1,5 @@
+using UnityEngine;
+
 namespace SafeHome.Patches
 {
     public static class MapPatch
