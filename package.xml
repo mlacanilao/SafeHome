@@ -5,14 +5,13 @@
   <author>OmegaPlatinum</author>
   <loadPriority>100</loadPriority>
   <description>
-    Replaces hostile and wild spawns around the player's home with neutral visitors.
-    敵対的なモンスターや野生動物の出現を無効化し、ホームゾーンに中立の訪問者をスポーンさせます。
+    Prevents hostile and wild spawns around the player's home.
+    ホームゾーン周辺の敵対的および野生のスポーンを抑制します。
 
     [h1] Features [/h1]
     [list]
-    [*]Replaces hostile enemies and wild animal spawns in home zones with neutral visitors (guests).
-    [*]Prevents hostile mobs from spawning in home zones.
-    [*]Ignores the current danger level when determining spawns.
+    [*]Prevents hostile enemies and wild animals from spawning in home zones.
+    [*]Ignores the current danger level when determining spawn conditions.
     [*]Compatible with existing save files.
     [/list]
 
@@ -23,9 +22,8 @@
 
     [h1] 特徴 [/h1]
     [list]
-    [*]敵対的な敵や野生動物を中立の訪問者（ゲスト）に置き換えます。
-    [*]ホームゾーンで敵対的なモブがスポーンするのを防ぎます。
-    [*]スポーンを決定する際に現在の危険度を無視します。
+    [*]ホームゾーンでの敵対的な敵や野生動物のスポーンを防ぎます。
+    [*]スポーン条件を決定する際に現在の危険度を無視します。
     [*]既存のセーブデータと互換性があります。
     [/list]
 

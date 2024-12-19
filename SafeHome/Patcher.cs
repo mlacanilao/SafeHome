@@ -6,17 +6,17 @@ namespace SafeHome
     public class Patcher
     {
         [HarmonyPrefix]
-        [HarmonyPatch(declaringType: typeof(SpawnSetting), methodName: nameof(SpawnSetting.HomeEnemy))]
-        public static bool SpawnSettingHomeEnemy(ref SpawnSetting __result, int lv)
+        [HarmonyPatch(declaringType: typeof(Map), methodName: nameof(Map.CountHostile))]
+        public static bool MapCountHostile(ref int __result)
         {
-            return SpawnSettingPatch.HomeEnemyPrefix(__result: ref __result, lv: lv);
+            return MapPatch.CountHostilePrefix(__result: ref __result); 
         }
         
         [HarmonyPrefix]
-        [HarmonyPatch(declaringType: typeof(SpawnSetting), methodName: nameof(SpawnSetting.HomeWild))]
-        public static bool SpawnSettingHomeWild(ref SpawnSetting __result, int lv)
+        [HarmonyPatch(declaringType: typeof(Map), methodName: nameof(Map.CountWildAnimal))]
+        public static bool MapCountWildAnimal(ref int __result)
         {
-            return SpawnSettingPatch.HomeWildPrefix(__result: ref __result, lv: lv);
+            return MapPatch.CountWildAnimalPrefix(__result: ref __result); 
         }
     }
 }
