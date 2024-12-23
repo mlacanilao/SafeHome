@@ -25,5 +25,12 @@ namespace SafeHome
         {
             return ZonePatch.RespawnRatePrefix(__result: ref __result);
         }
+        
+        [HarmonyPostfix]
+        [HarmonyPatch(declaringType: typeof(FactionBranch), methodName: nameof(FactionBranch.OnSimulateHour))]
+        public static void FactionBranchOnSimulateHour()
+        {
+            FactionBranchPatch.OnSimulateHourPostfix();
+        }
     }
 }

@@ -30,9 +30,9 @@
     [h1] 互換性 [/h1]
     このMODは既存のセーブデータと互換性があり、特別な設定は不要です。
 
-    対応ゲームバージョン: 0.23.55
+    対応ゲームバージョン: 0.23.61
   </description>
   <tags>QoL</tags>
   <visibility>Public</visibility>
-  <version>0.23.55</version>
+  <version>0.23.61</version>
 </Meta>
