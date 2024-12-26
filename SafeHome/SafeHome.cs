@@ -7,7 +7,7 @@ namespace SafeHome
     {
         internal const string Guid = "omegaplatinum.elin.safehome";
         internal const string Name = "Safe Home";
-        internal const string Version = "1.3.0.0";
+        internal const string Version = "1.3.1.0";
         internal const string ModOptionsGuid = "evilmask.elinplugins.modoptions";
     }
 
@@ -20,7 +20,7 @@ namespace SafeHome
         {
             Instance = this;
             
-            Harmony.CreateAndPatchAll(type: typeof(Patcher));
+            Harmony.CreateAndPatchAll(type: typeof(Patcher), harmonyInstanceId: ModInfo.Guid);
         }
         
         public static void Log(object payload)
