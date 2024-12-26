@@ -6,6 +6,11 @@ namespace SafeHome.Patches
     {
         public static void OnSimulateHourPostfix()
         {
+            if (EClass._zone?.IsPlayerFaction == false)
+            {
+                return;
+            }
+            
             List<Chara> charasToDestroy = new List<Chara>();
             
             foreach (Chara chara in EClass._map.charas)

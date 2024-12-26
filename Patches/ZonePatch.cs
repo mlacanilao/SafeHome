@@ -4,12 +4,13 @@ namespace SafeHome.Patches
     {
         public static bool RespawnRatePrefix(ref float __result)
         {
-            if (EClass._zone.IsPlayerFaction)
+            if (EClass._zone?.IsPlayerFaction == false)
             {
-                __result = 0;
-                return false;
+                return true;
             }
-            return true;
+
+            __result = 0;
+            return false;
         }
     }
 }

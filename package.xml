@@ -18,7 +18,7 @@
     [h1] Compatibility [/h1]
     This mod works with existing save files and does not require any manual setup.
 
-    Supports Game Version: 0.23.55
+    Supports Game Version: 0.23.67
 
     [h1] 特徴 [/h1]
     [list]
@@ -30,9 +30,9 @@
     [h1] 互換性 [/h1]
     このMODは既存のセーブデータと互換性があり、特別な設定は不要です。
 
-    対応ゲームバージョン: 0.23.61
+    対応ゲームバージョン: 0.23.67
   </description>
   <tags>QoL</tags>
   <visibility>Public</visibility>
-  <version>0.23.61</version>
+  <version>0.23.67</version>
 </Meta>
