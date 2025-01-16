@@ -1,10 +1,9 @@
 using System.Collections.Generic;
-
-namespace SafeHome.Patches
+namespace SafeHome
 {
-    public class FactionBranchPatch
+    internal class FactionBranchPatch
     {
-        public static void OnSimulateHourPostfix()
+        internal static void OnSimulateHourPostfix()
         {
             if (EClass._zone?.IsPlayerFaction == false)
             {

@@ -1,8 +1,8 @@
-namespace SafeHome.Patches
+namespace SafeHome
 {
-    public static class MapPatch
+    internal static class MapPatch
     {
-        public static bool CountHostilePrefix(ref int __result)
+        internal static bool CountHostilePrefix(ref int __result)
         {
             if (EClass._zone?.IsPlayerFaction == false)
             {
@@ -13,7 +13,7 @@ namespace SafeHome.Patches
             return false;
         }
         
-        public static bool CountWildAnimalPrefix(ref int __result)
+        internal static bool CountWildAnimalPrefix(ref int __result)
         {
             if (EClass._zone?.IsPlayerFaction == false)
             {

@@ -10,29 +10,31 @@
 
     [h1] Features [/h1]
     [list]
-    [*]Prevents hostile enemies and wild animals from spawning in home zones.
-    [*]Ignores the current danger level when determining spawn conditions.
-    [*]Compatible with existing save files.
+    [*] Prevents hostile enemies and wild animals from spawning in home zones.
+    [*] Ignores the current danger level when determining spawn conditions.
+    [*] Prevents NPCs from reading books.
+    [*] Compatible with existing save files.
     [/list]
 
     [h1] Compatibility [/h1]
     This mod works with existing save files and does not require any manual setup.
 
-    Supports Game Version: 0.23.67
+    Supports Game Version: 0.23.75
 
     [h1] 特徴 [/h1]
     [list]
-    [*]ホームゾーンでの敵対的な敵や野生動物のスポーンを防ぎます。
-    [*]スポーン条件を決定する際に現在の危険度を無視します。
-    [*]既存のセーブデータと互換性があります。
+    [*] ホームゾーンでの敵対的な敵や野生動物のスポーンを防ぎます。
+    [*] スポーン条件を決定する際に現在の危険度を無視します。
+    [*] NPCが本を読むのを防ぎます。
+    [*] 既存のセーブデータと互換性があります。
     [/list]
 
     [h1] 互換性 [/h1]
     このMODは既存のセーブデータと互換性があり、特別な設定は不要です。
 
-    対応ゲームバージョン: 0.23.67
+    対応ゲームバージョン: 0.23.75
   </description>
   <tags>QoL</tags>
   <visibility>Public</visibility>
-  <version>0.23.67</version>
+  <version>0.23.75</version>
 </Meta>

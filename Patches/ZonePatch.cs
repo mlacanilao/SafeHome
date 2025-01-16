@@ -1,8 +1,8 @@
-namespace SafeHome.Patches
+namespace SafeHome
 {
-    public static class ZonePatch
+    internal static class ZonePatch
     {
-        public static bool RespawnRatePrefix(ref float __result)
+        internal static bool RespawnRatePrefix(ref float __result)
         {
             if (EClass._zone?.IsPlayerFaction == false)
             {
