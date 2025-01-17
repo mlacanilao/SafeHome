@@ -33,10 +33,10 @@ namespace SafeHome
         }
         
         [HarmonyPrefix]
-        [HarmonyPatch(declaringType: typeof(TraitBaseSpellbook), methodName: nameof(TraitBaseSpellbook.OnRead))]
-        internal static bool TraitBaseSpellbookOnRead(Chara c)
+        [HarmonyPatch(declaringType: typeof(TraitBaseSpellbook), methodName: nameof(TraitBaseSpellbook.ReadFailEffect))]
+        internal static bool TraitBaseSpellbookReadFailEffect(Chara c)
         {
-            return TraitBaseSpellbookPatch.OnReadPrefix(c: c);
+            return TraitBaseSpellbookPatch.ReadFailEffectPrefix(c: c);
         }
     }
 }
