@@ -13,17 +13,27 @@ namespace SafeHome
             List<Chara> charasToDestroy = new List<Chara>();
             
             foreach (Chara chara in EClass._map.charas)
-            {
-                if (chara.memberType == FactionMemberType.Guest && chara.hostility == Hostility.Enemy)
+            { 
+                bool removeGuestEnemy =
+                    chara.memberType == FactionMemberType.Guest &&
+                    chara.hostility == Hostility.Enemy;
+
+                bool removeOtherEnemy =
+                    chara.hostility == Hostility.Enemy &&
+                    !chara.IsPCParty &&
+                    chara.faction != EClass.Home;
+                
+                if (removeGuestEnemy == true || 
+                    removeOtherEnemy == true)
                 {
-                    charasToDestroy.Add(chara);
+                    charasToDestroy.Add(item: chara);
                 }
             }
 
             foreach (Chara hostileChara in charasToDestroy)
             {
                 hostileChara.Destroy();
-                hostileChara.ClearBed(null);
+                hostileChara.ClearBed(map: null);
             }
         }
     }

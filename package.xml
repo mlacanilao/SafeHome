@@ -19,7 +19,7 @@
     [h1] Compatibility [/h1]
     This mod works with existing save files and does not require any manual setup.
 
-    Supports Game Version: 0.23.75
+    [img] https://img.shields.io/badge/Supports%20Game%20Version-EA%2023.237%20Stable-green [/img]
 
     [h1] 特徴 [/h1]
     [list]
@@ -32,9 +32,9 @@
     [h1] 互換性 [/h1]
     このMODは既存のセーブデータと互換性があり、特別な設定は不要です。
 
-    対応ゲームバージョン: 0.23.75
+    [img] https://img.shields.io/badge/対応ゲームバージョン対応ゲームバージョン-EA%2023.237%20Stable-green [/img]
   </description>
   <tags>QoL</tags>
   <visibility>Public</visibility>
-  <version>0.23.75</version>
+  <version>0.23.237</version>
 </Meta>
