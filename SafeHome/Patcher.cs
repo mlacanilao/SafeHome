@@ -59,5 +59,12 @@ namespace SafeHome
         {
             ZonePatch.RespawnPerHourPostfix(__result: ref __result);
         }
+        
+        [HarmonyPrefix]
+        [HarmonyPatch(declaringType: typeof(TraitSpotBiome), methodName: nameof(TraitSpotBiome.Update))]
+        internal static bool TraitSpotBiomeUpdate()
+        {
+            return TraitSpotBiomePatch.UpdatePrefix();
+        }
     }
 }
