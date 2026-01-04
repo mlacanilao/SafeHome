@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using HarmonyLib;
 
 namespace SafeHome
@@ -60,11 +61,11 @@ namespace SafeHome
             ZonePatch.RespawnPerHourPostfix(__result: ref __result);
         }
         
-        [HarmonyPrefix]
+        [HarmonyTranspiler]
         [HarmonyPatch(declaringType: typeof(TraitSpotBiome), methodName: nameof(TraitSpotBiome.Update))]
-        internal static bool TraitSpotBiomeUpdate()
+        internal static IEnumerable<CodeInstruction> TraitSpotBiomeUpdate(IEnumerable<CodeInstruction> instructions)
         {
-            return TraitSpotBiomePatch.UpdatePrefix();
+            return TraitSpotBiomePatch.UpdateTranspiler(instructions: instructions);
         }
     }
 }

@@ -7,7 +7,7 @@ namespace SafeHome
     {
         internal const string Guid = "omegaplatinum.elin.safehome";
         internal const string Name = "Safe Home";
-        internal const string Version = "1.6.0";
+        internal const string Version = "1.7.0";
         internal const string ModOptionsGuid = "evilmask.elinplugins.modoptions";
     }
 
