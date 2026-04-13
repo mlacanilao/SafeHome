@@ -1,16 +1,15 @@
-namespace SafeHome
+namespace SafeHome;
+
+internal static class TraitBaseSpellbookPatch
 {
-    internal class TraitBaseSpellbookPatch
+    internal static bool ReadFailEffectPrefix(Chara c)
     {
-        internal static bool ReadFailEffectPrefix(Chara c)
+        if (EClass.core?.IsGameStarted == false ||
+            SafeHomeScope.ShouldSuppressZoneSpawns(zone: c.currentZone) == false)
         {
-            if (EClass.core?.IsGameStarted == false ||
-                EClass._zone?.IsPCFaction == false)
-            {
-                return true;
-            }
-            
-            return false;
+            return true;
         }
+
+        return false;
     }
 }

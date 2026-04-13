@@ -1,25 +1,26 @@
-namespace SafeHome
-{
-    internal static class MapPatch
-    {
-        internal static void CountHostilePostfix(ref int __result)
-        {
-            if (EClass._zone?.IsPlayerFaction == false)
-            {
-                return;
-            }
+namespace SafeHome;
 
-            __result = 9999;
-        }
-        
-        internal static void CountWildAnimalPostfix(ref int __result)
+internal static class MapPatch
+{
+    private const int BlockedSpawnCount = 9999;
+
+    internal static void CountHostilePostfix(Map map, ref int __result)
+    {
+        if (SafeHomeScope.ShouldSuppressZoneSpawns(zone: map.zone) == false)
         {
-            if (EClass._zone?.IsPlayerFaction == false)
-            {
-                return;
-            }
-            
-            __result = 9999;
+            return;
         }
+
+        __result = BlockedSpawnCount;
+    }
+
+    internal static void CountWildAnimalPostfix(Map map, ref int __result)
+    {
+        if (SafeHomeScope.ShouldSuppressZoneSpawns(zone: map.zone) == false)
+        {
+            return;
+        }
+
+        __result = BlockedSpawnCount;
     }
 }

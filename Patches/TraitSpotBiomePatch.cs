@@ -3,61 +3,67 @@ using System.Reflection;
 using System.Reflection.Emit;
 using HarmonyLib;
 
-namespace SafeHome
+namespace SafeHome;
+
+internal static class TraitSpotBiomePatch
 {
-    internal static class TraitSpotBiomePatch
+    private static Chara? SpawnMobOrSuppress(Zone zone, Point pos, SpawnSetting? setting)
     {
-        internal static IEnumerable<CodeInstruction> UpdateTranspiler(IEnumerable<CodeInstruction> instructions)
+        if (SafeHomeScope.ShouldSuppressZoneSpawns(zone: zone))
         {
-            var codeMatcher = new CodeMatcher(instructions: instructions);
-            
-            MethodInfo spawnMob = AccessTools.Method(
-                type: typeof(Zone),
-                name: nameof(Zone.SpawnMob),
-                parameters: new[] { typeof(Point), typeof(SpawnSetting) }
-            );
-            
-            if (spawnMob == null)
-            {
-                SafeHome.Log(payload: "TraitSpotBiome.Update transpiler: Zone.SpawnMob not found");
-                return codeMatcher.Instructions();
-            }
-            
-            codeMatcher.MatchStartForward(matches: new[]
-            {
-                new CodeMatch(opcode: OpCodes.Callvirt, operand: spawnMob)
-            });
-            
-            if (codeMatcher.IsValid)
-            {
-                codeMatcher.SetInstruction(instruction: new CodeInstruction(opcode: OpCodes.Pop));
-                codeMatcher.Insert(instructions: new[]
-                {
-                    new CodeInstruction(opcode: OpCodes.Pop),
-                    new CodeInstruction(opcode: OpCodes.Pop),
-                    new CodeInstruction(opcode: OpCodes.Ldnull),
-                });
-                
-                codeMatcher.Advance(offset: 1);
-            }
-            
-            codeMatcher.MatchStartForward(matches: new[]
-            {
-                new CodeMatch(opcode: OpCodes.Callvirt, operand: spawnMob)
-            });
-            
-            if (codeMatcher.IsValid)
-            {
-                codeMatcher.SetInstruction(instruction: new CodeInstruction(opcode: OpCodes.Pop));
-                codeMatcher.Insert(instructions: new[]
-                {
-                    new CodeInstruction(opcode: OpCodes.Pop),
-                    new CodeInstruction(opcode: OpCodes.Pop),
-                    new CodeInstruction(opcode: OpCodes.Ldnull),
-                });
-            }
-            
-            return codeMatcher.Instructions();
+            return null;
         }
+
+        return zone.SpawnMob(pos, setting);
+    }
+
+    internal static IEnumerable<CodeInstruction> UpdateTranspiler(IEnumerable<CodeInstruction> instructions)
+    {
+        MethodInfo? spawnMob = AccessTools.Method(
+            type: typeof(Zone),
+            name: nameof(Zone.SpawnMob),
+            parameters: new[] { typeof(Point), typeof(SpawnSetting) }
+        );
+
+        MethodInfo? spawnMobOrSuppress = AccessTools.Method(
+            type: typeof(TraitSpotBiomePatch),
+            name: nameof(SpawnMobOrSuppress)
+        );
+
+        if (spawnMob == null ||
+            spawnMobOrSuppress == null)
+        {
+            SafeHome.LogError(message: "TraitSpotBiome.Update transpiler: required method lookup failed");
+            return instructions;
+        }
+
+        List<CodeInstruction> patchedInstructions = new List<CodeInstruction>();
+        int replacementCount = 0;
+
+        foreach (CodeInstruction instruction in instructions)
+        {
+            if (instruction.opcode == OpCodes.Callvirt &&
+                Equals(objA: instruction.operand, objB: spawnMob))
+            {
+                CodeInstruction replacement = new CodeInstruction(instruction)
+                {
+                    opcode = OpCodes.Call,
+                    operand = spawnMobOrSuppress
+                };
+
+                patchedInstructions.Add(item: replacement);
+                replacementCount++;
+                continue;
+            }
+
+            patchedInstructions.Add(item: instruction);
+        }
+
+        if (replacementCount != 2)
+        {
+            SafeHome.LogError(message: $"TraitSpotBiome.Update transpiler expected 2 SpawnMob replacements, but found {replacementCount}");
+        }
+
+        return patchedInstructions;
     }
 }

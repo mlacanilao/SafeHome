@@ -12,7 +12,7 @@
     [list]
     [*] Prevents hostile enemies and wild animals from spawning in home zones.
     [*] Ignores the current danger level when determining spawn conditions.
-    [*] Prevents negative effects when failing to read books.
+    [*] Prevents negative effects from reading failures.
     [*] Compatible with existing save files.
     [/list]
 
@@ -25,16 +25,16 @@
     [list]
     [*] ホームゾーンでの敵対的な敵や野生動物のスポーンを防ぎます。
     [*] スポーン条件を決定する際に現在の危険度を無視します。
-    [*] 本を読むのに失敗した際の負の効果を防ぎます。
+    [*] 読書失敗時の負の効果を防ぎます。
     [*] 既存のセーブデータと互換性があります。
     [/list]
 
     [h1] 互換性 [/h1]
     このMODは既存のセーブデータと互換性があり、特別な設定は不要です。
 
-    [img] https://img.shields.io/badge/対応ゲームバージョン対応ゲームバージョン-EA%2023.252%20Stable-green [/img]
+    [img] https://img.shields.io/badge/対応ゲームバージョン-EA%2023.295%20Stable-green [/img]
   </description>
   <tags>QoL</tags>
   <visibility>Public</visibility>
-  <version>0.23.252</version>
+  <version>0.23.295</version>
 </Meta>
